@@ -1,21 +1,12 @@
 import Axios from 'axios'
 
 // Function to retrieve a cookie by its name
-const getCookie = cname => {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
+const getCookie = id => {
+
+    let value = document.cookie.match('(^|;)?' + id + '=([^;]*)(;|$)');
+    return value ? unescape(value[2]) : null;
+ 
+ }
 
 // Create an Axios instance with default configuration
 const axios = Axios.create({
