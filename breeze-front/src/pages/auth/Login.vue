@@ -14,8 +14,8 @@ const route = useRoute()
 const store = useUsers()
 
 const form = ref({
-    email: '',
-    password: '',
+    email: 'test@example.com',
+    password: 'password',
     remember: false,
 })
 
